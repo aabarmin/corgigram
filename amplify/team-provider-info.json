@@ -10,6 +10,11 @@
       "StackName": "amplify-corgigram-dev-181655",
       "StackId": "arn:aws:cloudformation:us-east-1:835357144480:stack/amplify-corgigram-dev-181655/95093a30-0c11-11ec-a736-1272d872aba7",
       "AmplifyAppId": "dx6uur2h0bfgo"
+    },
+    "categories": {
+      "auth": {
+        "corgigram2f292de9": {}
+      }
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Auth from '@aws-amplify/auth';
 
 @Component({
   selector: 'corgigram-toolbar',
@@ -19,7 +20,7 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  goCorgis(): void {
-    this.router.navigate(['/corgis']);
+  logout(): void {
+    Auth.signOut();
   }
 }
