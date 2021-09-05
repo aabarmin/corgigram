@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Add a new photo</h2>
+<mat-dialog-content class="mat-typography">
+    
+    <table>
+        <tr>
+            <td>Photo</td>
+            <td>
+                <input type="file" name="photo" />
+            </td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>
+                <mat-form-field>
+                    <textarea matInput id="" cols="30" rows="10" [(value)]="descirption"></textarea>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button mat-flat-button color="primary" (click)="onSubmit()">Add</button>
+            </td>
+        </tr>
+    </table>
+
+</mat-dialog-content>

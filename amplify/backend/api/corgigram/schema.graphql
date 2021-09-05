@@ -1,0 +1,31 @@
+type Account 
+  @model {
+
+  id: ID!
+  accountName: String!
+  posts: [Post] @connection(keyName: "byAccount", fields: ["id"])
+}
+
+type Post 
+  @model 
+  @key(name: "byAccount", fields: ["accountId"]) {
+
+  id: ID!
+  title: String!
+  accountId: ID!
+  account: Account @connection(fields: ["accountId"])
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+}
+
+type Comment 
+  @model 
+  @key(name: "byPost", fields: ["authorId"]) {
+
+  id: ID!
+  text: String!
+  postId: ID!
+  post: Post @connection(fields: ["postId"])
+  authorId: ID!
+  author: Account @connection(fields: ["authorId"])
+}
+

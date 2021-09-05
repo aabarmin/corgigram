@@ -1,0 +1,4 @@
+<section>
+    <mat-progress-bar mode="indeterminate" *ngIf="isDataLoading == true"></mat-progress-bar>
+    <corgigram-photo-card *ngFor="let record of records" [record]="record"></corgigram-photo-card>
+</section>
