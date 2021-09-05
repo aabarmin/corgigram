@@ -1,6 +1,6 @@
 import { DataSource } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
-import { DataStore } from 'aws-amplify';
+import { DataStore, Predicates, SortDirection } from 'aws-amplify';
 import { Post } from 'src/models';
 import { PhotoRecord } from '../models/photo-record';
 
@@ -29,9 +29,25 @@ export class HomeComponent implements OnInit {
 
   private loadData() {
     this.isDataLoading = true;
-    DataStore.query(Post).then(records => {
+    DataStore.query(Post, Predicates.ALL, {sort: (record) => record.createdAt(SortDirection.DESCENDING)}).then(records => {
       this.isDataLoading = false;
-      this.records = records;
+      this.records = records.map(r => this.toRecord(r));
     });
+  }
+
+  private toRecord(post: Post): PhotoRecord {
+    const createdAt = post.createdAt ? Date.parse(post.createdAt) : Date.now();
+
+    const record = new PhotoRecord();
+    record.id = post.id;
+    record.title = post.title;
+    record.created = this.formatDate(createdAt);
+    record.author = post.account ? post.account.accountName : "Unknown";
+    return record;
+  }
+
+  private formatDate(date: number): string {
+    const obj = new Date(date);
+    return `${obj.getFullYear()}.${obj.getMonth() + 1}.${obj.getDate()}`;
   }
 }
