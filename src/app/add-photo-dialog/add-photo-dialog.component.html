@@ -5,7 +5,7 @@
         <tr>
             <td>Photo</td>
             <td>
-                <input type="file" name="photo" />
+                <input type="file" name="photo" #photo />
             </td>
         </tr>
         <tr>
@@ -18,9 +18,11 @@
         </tr>
         <tr>
             <td colspan="2">
-                <button mat-flat-button color="primary" (click)="onSubmit()">Add</button>
+                <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="inProgress">Add</button>
             </td>
         </tr>
     </table>
+
+    <mat-progress-bar mode="indeterminate" *ngIf="inProgress"></mat-progress-bar>
 
 </mat-dialog-content>

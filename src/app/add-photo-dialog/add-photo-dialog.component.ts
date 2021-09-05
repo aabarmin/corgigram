@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Auth, DataStore } from 'aws-amplify';
-import { Post } from 'src/models';
+import { Storage, DataStore } from 'aws-amplify';
+import { Account, Post } from 'src/models';
 import { AccountService } from '../account.service';
+
+type UploadInfo = {
+  key: string
+};
 
 @Component({
   selector: 'corgigram-add-photo-dialog',
@@ -12,6 +16,10 @@ import { AccountService } from '../account.service';
 export class AddPhotoDialogComponent implements OnInit {
 
   descirption: string = 'Test description';
+  inProgress: boolean = false;
+
+  @ViewChild("photo")
+  photoUpload: ElementRef;
 
   constructor(
     private dialogRef: MatDialogRef<AddPhotoDialogComponent>,
@@ -23,10 +31,16 @@ export class AddPhotoDialogComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.accountService.getCurrentUserAccount().then(account => {
+    this.inProgress = true;
+    Promise.all([
+      this.uploadFile(),
+      this.checkAccount()
+    ]).then(result => {
+      const [ uploadInfo, account ] = result;
       const newPost = new Post({
         title: this.descirption,
-        account: account
+        account: account,
+        photo: uploadInfo.key 
       });
       DataStore.save(newPost).then(() => {
         this.dialogRef.close();
@@ -34,4 +48,16 @@ export class AddPhotoDialogComponent implements OnInit {
     });
   }
 
+  private uploadFile(): Promise<UploadInfo> {
+    return new Promise(r => {
+      const file = this.photoUpload.nativeElement.files[0];
+      Storage.put(file.name, file).then((result: UploadInfo) => {
+        r(result);
+      });
+    })
+  }
+
+  private checkAccount(): Promise<Account> {
+    return this.accountService.getCurrentUserAccount();
+  }
 }

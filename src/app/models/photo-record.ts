@@ -3,4 +3,5 @@ export class PhotoRecord {
     title: string;
     author: string;
     created: string;
+    photoKey: string;
 }

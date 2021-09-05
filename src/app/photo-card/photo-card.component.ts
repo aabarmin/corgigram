@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PhotoRecord } from '../models/photo-record';
+import { Storage } from 'aws-amplify';
 
 @Component({
   selector: 'corgigram-photo-card',
@@ -11,9 +12,20 @@ export class PhotoCardComponent implements OnInit {
   @Input()
   record: PhotoRecord;
 
+  inProgress: boolean = false;
+  imageUrl: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
+    const config = {
+      download: false
+    };
+    this.inProgress = true;
+    Storage.get(this.record.photoKey, config).then((imageUrl: string) => {
+      this.imageUrl = imageUrl;
+      this.inProgress = false;
+    })
   }
 
 }

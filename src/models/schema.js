@@ -87,6 +87,13 @@ export const schema = {
                         "targetName": "accountId"
                     }
                 },
+                "photo": {
+                    "name": "photo",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "comments": {
                     "name": "comments",
                     "isArray": true,
@@ -217,5 +224,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "b575955b199097f538b03200fc05c2d1"
+    "version": "99e3da1d3f8694da69857a503766dc2f"
 };
