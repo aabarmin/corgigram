@@ -11,6 +11,7 @@ mutation CreateAccount(
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -39,6 +40,7 @@ mutation UpdateAccount(
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -67,6 +69,7 @@ mutation DeleteAccount(
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -104,6 +107,7 @@ mutation CreatePost(
       createdAt
       updatedAt
     }
+    photo
     comments {
       items {
         id
@@ -147,6 +151,7 @@ mutation UpdatePost(
       createdAt
       updatedAt
     }
+    photo
     comments {
       items {
         id
@@ -190,6 +195,7 @@ mutation DeletePost(
       createdAt
       updatedAt
     }
+    photo
     comments {
       items {
         id
@@ -233,6 +239,7 @@ mutation CreateComment(
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt
@@ -285,6 +292,7 @@ mutation UpdateComment(
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt
@@ -337,6 +345,7 @@ mutation DeleteComment(
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt

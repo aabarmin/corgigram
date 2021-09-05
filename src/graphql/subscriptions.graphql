@@ -8,6 +8,7 @@ subscription OnCreateAccount {
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -33,6 +34,7 @@ subscription OnUpdateAccount {
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -58,6 +60,7 @@ subscription OnDeleteAccount {
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -92,6 +95,7 @@ subscription OnCreatePost {
       createdAt
       updatedAt
     }
+    photo
     comments {
       items {
         id
@@ -132,6 +136,7 @@ subscription OnUpdatePost {
       createdAt
       updatedAt
     }
+    photo
     comments {
       items {
         id
@@ -172,6 +177,7 @@ subscription OnDeletePost {
       createdAt
       updatedAt
     }
+    photo
     comments {
       items {
         id
@@ -212,6 +218,7 @@ subscription OnCreateComment {
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt
@@ -261,6 +268,7 @@ subscription OnUpdateComment {
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt
@@ -310,6 +318,7 @@ subscription OnDeleteComment {
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt

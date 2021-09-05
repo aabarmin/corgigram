@@ -1,6 +1,6 @@
 {
     "identityPoolName": "corgigram2f292de9_identitypool_2f292de9",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "corgig2f292de9",
     "userPoolName": "corgigram2f292de9_userpool_2f292de9",
     "autoVerifiedAttributes": [

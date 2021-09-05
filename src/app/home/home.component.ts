@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
     record.title = post.title;
     record.created = this.formatDate(createdAt);
     record.author = post.account ? post.account.accountName : "Unknown";
+    record.photoKey = post.photo;
     return record;
   }
 

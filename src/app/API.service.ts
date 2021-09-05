@@ -86,6 +86,7 @@ export type Post = {
   title: string;
   accountId: string;
   account?: Account | null;
+  photo: string;
   comments?: ModelCommentConnection | null;
   _version: number;
   _deleted?: boolean | null;
@@ -131,12 +132,14 @@ export type CreatePostInput = {
   id?: string | null;
   title: string;
   accountId: string;
+  photo: string;
   _version?: number | null;
 };
 
 export type ModelPostConditionInput = {
   title?: ModelStringInput | null;
   accountId?: ModelIDInput | null;
+  photo?: ModelStringInput | null;
   and?: Array<ModelPostConditionInput | null> | null;
   or?: Array<ModelPostConditionInput | null> | null;
   not?: ModelPostConditionInput | null;
@@ -162,6 +165,7 @@ export type UpdatePostInput = {
   id: string;
   title?: string | null;
   accountId?: string | null;
+  photo?: string | null;
   _version?: number | null;
 };
 
@@ -219,6 +223,7 @@ export type ModelPostFilterInput = {
   id?: ModelIDInput | null;
   title?: ModelStringInput | null;
   accountId?: ModelIDInput | null;
+  photo?: ModelStringInput | null;
   and?: Array<ModelPostFilterInput | null> | null;
   or?: Array<ModelPostFilterInput | null> | null;
   not?: ModelPostFilterInput | null;
@@ -245,6 +250,7 @@ export type CreateAccountMutation = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -272,6 +278,7 @@ export type UpdateAccountMutation = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -299,6 +306,7 @@ export type DeleteAccountMutation = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -335,6 +343,7 @@ export type CreatePostMutation = {
     createdAt: string;
     updatedAt: string;
   } | null;
+  photo: string;
   comments?: {
     __typename: "ModelCommentConnection";
     items?: Array<{
@@ -379,6 +388,7 @@ export type UpdatePostMutation = {
     createdAt: string;
     updatedAt: string;
   } | null;
+  photo: string;
   comments?: {
     __typename: "ModelCommentConnection";
     items?: Array<{
@@ -423,6 +433,7 @@ export type DeletePostMutation = {
     createdAt: string;
     updatedAt: string;
   } | null;
+  photo: string;
   comments?: {
     __typename: "ModelCommentConnection";
     items?: Array<{
@@ -467,6 +478,7 @@ export type CreateCommentMutation = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -521,6 +533,7 @@ export type UpdateCommentMutation = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -575,6 +588,7 @@ export type DeleteCommentMutation = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -641,6 +655,7 @@ export type GetAccountQuery = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -695,6 +710,7 @@ export type SyncPostsQuery = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -730,6 +746,7 @@ export type GetPostQuery = {
     createdAt: string;
     updatedAt: string;
   } | null;
+  photo: string;
   comments?: {
     __typename: "ModelCommentConnection";
     items?: Array<{
@@ -771,6 +788,7 @@ export type ListPostsQuery = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -798,6 +816,7 @@ export type SyncCommentsQuery = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -845,6 +864,7 @@ export type GetCommentQuery = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -891,6 +911,7 @@ export type ListCommentsQuery = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -929,6 +950,7 @@ export type OnCreateAccountSubscription = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -956,6 +978,7 @@ export type OnUpdateAccountSubscription = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -983,6 +1006,7 @@ export type OnDeleteAccountSubscription = {
       id: string;
       title: string;
       accountId: string;
+      photo: string;
       _version: number;
       _deleted?: boolean | null;
       _lastChangedAt: number;
@@ -1019,6 +1043,7 @@ export type OnCreatePostSubscription = {
     createdAt: string;
     updatedAt: string;
   } | null;
+  photo: string;
   comments?: {
     __typename: "ModelCommentConnection";
     items?: Array<{
@@ -1063,6 +1088,7 @@ export type OnUpdatePostSubscription = {
     createdAt: string;
     updatedAt: string;
   } | null;
+  photo: string;
   comments?: {
     __typename: "ModelCommentConnection";
     items?: Array<{
@@ -1107,6 +1133,7 @@ export type OnDeletePostSubscription = {
     createdAt: string;
     updatedAt: string;
   } | null;
+  photo: string;
   comments?: {
     __typename: "ModelCommentConnection";
     items?: Array<{
@@ -1151,6 +1178,7 @@ export type OnCreateCommentSubscription = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -1205,6 +1233,7 @@ export type OnUpdateCommentSubscription = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -1259,6 +1288,7 @@ export type OnDeleteCommentSubscription = {
       createdAt: string;
       updatedAt: string;
     } | null;
+    photo: string;
     comments?: {
       __typename: "ModelCommentConnection";
       nextToken?: string | null;
@@ -1313,6 +1343,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -1356,6 +1387,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -1399,6 +1431,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -1451,6 +1484,7 @@ export class APIService {
             createdAt
             updatedAt
           }
+          photo
           comments {
             __typename
             items {
@@ -1511,6 +1545,7 @@ export class APIService {
             createdAt
             updatedAt
           }
+          photo
           comments {
             __typename
             items {
@@ -1571,6 +1606,7 @@ export class APIService {
             createdAt
             updatedAt
           }
+          photo
           comments {
             __typename
             items {
@@ -1631,6 +1667,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -1701,6 +1738,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -1771,6 +1809,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -1875,6 +1914,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -1965,6 +2005,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -2020,6 +2061,7 @@ export class APIService {
             createdAt
             updatedAt
           }
+          photo
           comments {
             __typename
             items {
@@ -2075,6 +2117,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -2124,6 +2167,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -2191,6 +2235,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -2251,6 +2296,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -2309,6 +2355,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -2344,6 +2391,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -2379,6 +2427,7 @@ export class APIService {
               id
               title
               accountId
+              photo
               _version
               _deleted
               _lastChangedAt
@@ -2423,6 +2472,7 @@ export class APIService {
             createdAt
             updatedAt
           }
+          photo
           comments {
             __typename
             items {
@@ -2475,6 +2525,7 @@ export class APIService {
             createdAt
             updatedAt
           }
+          photo
           comments {
             __typename
             items {
@@ -2527,6 +2578,7 @@ export class APIService {
             createdAt
             updatedAt
           }
+          photo
           comments {
             __typename
             items {
@@ -2579,6 +2631,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -2641,6 +2694,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken
@@ -2703,6 +2757,7 @@ export class APIService {
               createdAt
               updatedAt
             }
+            photo
             comments {
               __typename
               nextToken

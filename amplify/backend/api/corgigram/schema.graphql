@@ -14,6 +14,7 @@ type Post
   title: String!
   accountId: ID!
   account: Account @connection(fields: ["accountId"])
+  photo: String!
   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
 }
 

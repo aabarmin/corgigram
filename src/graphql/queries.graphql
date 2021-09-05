@@ -37,6 +37,7 @@ query GetAccount($id: ID!) {
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -101,6 +102,7 @@ query SyncPosts(
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt
@@ -133,6 +135,7 @@ query GetPost($id: ID!) {
       createdAt
       updatedAt
     }
+    photo
     comments {
       items {
         id
@@ -174,6 +177,7 @@ query ListPosts(
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt
@@ -208,6 +212,7 @@ query SyncComments(
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
@@ -252,6 +257,7 @@ query GetComment($id: ID!) {
         createdAt
         updatedAt
       }
+      photo
       comments {
         nextToken
         startedAt
@@ -297,6 +303,7 @@ query ListComments(
         id
         title
         accountId
+        photo
         _version
         _deleted
         _lastChangedAt
