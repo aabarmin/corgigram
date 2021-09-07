@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Storage, DataStore } from 'aws-amplify';
+import { DataStore } from '@aws-amplify/datastore';
+import { Storage } from '@aws-amplify/storage';
 import { Account, Post } from 'src/models';
 import { AccountService } from '../account.service';
 

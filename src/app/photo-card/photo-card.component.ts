@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PhotoRecord } from '../models/photo-record';
-import { Storage } from 'aws-amplify';
+import { Storage } from '@aws-amplify/storage';
 
 @Component({
   selector: 'corgigram-photo-card',
