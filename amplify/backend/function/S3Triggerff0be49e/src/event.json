@@ -1,5 +1,38 @@
 {
-  "key1": "value1",
-  "key2": "value2",
-  "key3": "value3"
+  "Records": [
+      {
+          "eventVersion": "2.1",
+          "eventSource": "aws:s3",
+          "awsRegion": "us-east-1",
+          "eventTime": "2021-09-05T12:43:03.018Z",
+          "eventName": "ObjectCreated:Put",
+          "userIdentity": {
+              "principalId": "AWS:AROA4E7ZKOWQFPG777XYN:CognitoIdentityCredentials"
+          },
+          "requestParameters": {
+              "sourceIPAddress": "79.73.128.14"
+          },
+          "responseElements": {
+              "x-amz-request-id": "BK85Y0RZC7BGTK87",
+              "x-amz-id-2": "ZQuf3iazRQmNbbYBhxlyLiUhoISoCkqSCh9Iqs54HLe32wkBaylIlY6n+8fkTvH1s0gFdFX4rA9GAt1ZKN8R3q6k2k+9J69YzksifuCOqZw="
+          },
+          "s3": {
+              "s3SchemaVersion": "1.0",
+              "configurationId": "01f4cbf9-f781-45f6-876d-c148b807672e",
+              "bucket": {
+                  "name": "corgigram-storage181655-dev",
+                  "ownerIdentity": {
+                      "principalId": "A3Q39KTOGLM7BQ"
+                  },
+                  "arn": "arn:aws:s3:::corgigram-storage181655-dev"
+              },
+              "object": {
+                  "key": "public/WhatsApp Image 2021-09-03 at 14.57.33.jpeg",
+                  "size": 200381,
+                  "eTag": "26e89b54d3c4aa5addbf32df666d93f8",
+                  "sequencer": "006134BB57D20A0E4B"
+              }
+          }
+      }
+  ]
 }

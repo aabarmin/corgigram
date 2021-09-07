@@ -18,7 +18,7 @@
       "function": {
         "S3Triggerff0be49e": {
           "deploymentBucketName": "amplify-corgigram-dev-181655-deployment",
-          "s3Key": "amplify-builds/S3Triggerff0be49e-71586a426b4c53786657-build.zip"
+          "s3Key": "amplify-builds/S3Triggerff0be49e-316f49366b362b516f30-build.zip"
         }
       }
     }

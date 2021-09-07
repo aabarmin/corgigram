@@ -1,7 +1,7 @@
 import { DataSource } from '@angular/cdk/collections';
 import { Injectable } from '@angular/core';
 import Auth from '@aws-amplify/auth';
-import { DataStore } from 'aws-amplify';
+import { DataStore } from '@aws-amplify/datastore';
 import { Account } from 'src/models';
 
 type UserInfo = {

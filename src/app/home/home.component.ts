@@ -1,6 +1,5 @@
-import { DataSource } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
-import { DataStore, Predicates, SortDirection } from 'aws-amplify';
+import { DataStore, Predicates, SortDirection } from '@aws-amplify/datastore';
 import { Post } from 'src/models';
 import { PhotoRecord } from '../models/photo-record';
 
